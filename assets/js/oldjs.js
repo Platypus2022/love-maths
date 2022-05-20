@@ -20,8 +20,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     runGame("addition");
-});
-
+})
 /**
  * The main "loop", called when the script is first loaded
  * and after the user's answer has been processed
@@ -36,16 +35,13 @@ function runGame(gameType) {
         
     } else if (gameType === "multiply") {
         displayMultiplyQuestion(num1, num2);
-    } else if (gameType === "subtract") {
-        displaySubtractQuestion(num1, num2);    
     }else{
         alert(`Unknown game type: ${gameType}`);
         throw `unknown game type: ${gameType}. Aborting`;
     }
 }
 
-/** 
- * Checks the answer against the first element in
+/** Checks the answer against the first element in
  * the returned calculateCorrectAnswer array
  * */
 
@@ -77,15 +73,14 @@ function calculateCorrectAnswer() {
     let operator=document.getElementById('operator').innerText;
 
     if (operator === "+") {
-        return [operand1 + operand2, "addition"];      
+        return [operand1 + operand2, "addition"];
+        
     } else if (operator ==="x") {
         return [operand1 * operand2, "multiply"];
-    } else if (operator ==="-") {
-        return [operand1 - operand2, "subtract"];
-    
+       
     } else {
             alert(`Unimplemented operator ${operator}`);
-            throw `Unimplemented operator ${operator}. Aborting!`;
+            throw `Unimplemented operator ${operator}, Aborting!`;
         }
 
 
@@ -115,13 +110,13 @@ function displayAdditionQuestion(operand1, operand2) {
 
 }
 
-function displaySubtractQuestion(operand1, operand2) {
+function displaySubtractQuestion() {
     document.getElementById('operand1').textContent = operand1;
     document.getElementById('operand2').textContent = operand2;
     document.getElementById('operator').textContent = "-";
 }
 
-function displayMultiplyQuestion(operand1,operand2) {
+function displayMultiplyQuestion() {
     document.getElementById('operand1').textContent = operand1;
     document.getElementById('operand2').textContent = operand2;
     document.getElementById('operator').textContent = "x";
